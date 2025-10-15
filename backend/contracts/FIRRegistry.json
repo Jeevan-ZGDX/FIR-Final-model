@@ -1,0 +1,141 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        { "indexed": true, "internalType": "uint256", "name": "id", "type": "uint256" },
+        { "indexed": true, "internalType": "address", "name": "victim", "type": "address" },
+        { "indexed": false, "internalType": "string", "name": "ipfsCid", "type": "string" },
+        { "indexed": false, "internalType": "uint256", "name": "timestamp", "type": "uint256" },
+        { "indexed": false, "internalType": "uint256", "name": "similarityScore", "type": "uint256" }
+      ],
+      "name": "FIRCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        { "indexed": true, "internalType": "uint256", "name": "id", "type": "uint256" },
+        { "indexed": false, "internalType": "bool", "name": "verified", "type": "bool" },
+        { "indexed": true, "internalType": "address", "name": "verifiedBy", "type": "address" }
+      ],
+      "name": "FIRVerified",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        { "internalType": "string", "name": "_ipfsCid", "type": "string" },
+        { "internalType": "uint256", "name": "_similarityScore", "type": "uint256" }
+      ],
+      "name": "createFIR",
+      "outputs": [
+        { "internalType": "uint256", "name": "", "type": "uint256" }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "_id", "type": "uint256" }
+      ],
+      "name": "getFIR",
+      "outputs": [
+        {
+          "components": [
+            { "internalType": "uint256", "name": "id", "type": "uint256" },
+            { "internalType": "address", "name": "victim", "type": "address" },
+            { "internalType": "string", "name": "ipfsCid", "type": "string" },
+            { "internalType": "uint256", "name": "timestamp", "type": "uint256" },
+            { "internalType": "bool", "name": "verified", "type": "bool" },
+            { "internalType": "bool", "name": "exists", "type": "bool" },
+            { "internalType": "uint256", "name": "similarityScore", "type": "uint256" }
+          ],
+          "internalType": "struct FIRRegistry.FIR",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getTotalFIRs",
+      "outputs": [
+        { "internalType": "uint256", "name": "", "type": "uint256" }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "bool", "name": "_verified", "type": "bool" },
+        { "internalType": "uint256", "name": "_limit", "type": "uint256" },
+        { "internalType": "uint256", "name": "_offset", "type": "uint256" }
+      ],
+      "name": "getFIRsByStatus",
+      "outputs": [
+        {
+          "components": [
+            { "internalType": "uint256", "name": "id", "type": "uint256" },
+            { "internalType": "address", "name": "victim", "type": "address" },
+            { "internalType": "string", "name": "ipfsCid", "type": "string" },
+            { "internalType": "uint256", "name": "timestamp", "type": "uint256" },
+            { "internalType": "bool", "name": "verified", "type": "bool" },
+            { "internalType": "bool", "name": "exists", "type": "bool" },
+            { "internalType": "uint256", "name": "similarityScore", "type": "uint256" }
+          ],
+          "internalType": "struct FIRRegistry.FIR[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "address", "name": "_victim", "type": "address" }
+      ],
+      "name": "getVictimFIRs",
+      "outputs": [
+        { "internalType": "uint256[]", "name": "", "type": "uint256[]" }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "_id", "type": "uint256" },
+        { "internalType": "bool", "name": "_verified", "type": "bool" }
+      ],
+      "name": "setVerification",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "address", "name": "_victim", "type": "address" }
+      ],
+      "name": "grantVictimRole",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "address", "name": "_govStaff", "type": "address" }
+      ],
+      "name": "grantGovRole",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ]
+}
